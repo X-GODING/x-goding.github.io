@@ -1,10 +1,10 @@
 # Site settings
-title: Jeff's Lab
-SEOTitle: Jeff's Labs
+title: Jeeff's Lab
+SEOTitle: Jeeff's Labs
 header-img: img/post-bg-desk.jpg
 email: zhangzeyuan87@gmail.com
 description: "Don't be evil"
-keyword: "Jeff, Jeff's Lab, Linux, Android, Kernel"
+keyword: "Jeeff, Jeeff's Lab, Linux, Android, Kernel"
 url: "https://x-goding.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/x-goding/x-goding.github.io.git" # you code repository
