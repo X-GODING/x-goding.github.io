@@ -1,0 +1,45 @@
+---
+layout:     post
+title:      系统签名
+subtitle:   android
+date:       2021-08-06
+author:     JEFF
+header-img: img/post-bg-ios9-web.jpg
+catalog: true
+tags:
+    - Git
+---
+
+
+
+
+def unzip_files(source, target):
+    os.system("rm -rf %s %s" % (source.split(".zip")[0], target.split(".zip")[0]))
+    if source:
+        os.mkdir(source.split(".zip")[0])
+        os.system("unzip -q %s RADIO/* -d %s" % (source, source.split(".zip")[0]))
+
+    if target:
+        os.mkdir(target.split(".zip")[0])
+        os.system("unzip -q %s RADIO/* -d %s" % (target, target.split(".zip")[0]))
+
+def zip_files(source, target):
+    if source:
+        os.system("zip -dq %s RADIO/*" % (source))
+        os.system("mv %s/RADIO RADIO" % source.split(".zip")[0])
+        os.system("zip -qm %s RADIO/* ; rm -rf RADIO" % (source))
+        os.rmdir(source.split(".zip")[0])
+    if target:
+        os.system("zip -dq %s RADIO/*" % (target))
+        os.system("mv %s/RADIO RADIO" % target.split(".zip")[0])
+        os.system("zip -qm %s RADIO/* ; rm -rf RADIO" % (target))
+        os.rmdir(target.split(".zip")[0])
+
+#target-file 签名，一般用不到，最后会统一签名
+def sign_zip_files(source, target):
+    cmd = "java -Xmx2048m -Djava.library.path=out/host/linux-x86/lib64 -jar out/host/linux-x86/framework/signapk.jar \
+                -w tools/sunmitools/.config/sunmi/build/security/releasekey.x509.pem \
+                   tools/sunmitools/.config/sunmi/build/security/releasekey.pk8 %s %s"
+    os.system(cmd  % (source, source))
+    os.system(cmd  % (target, target))
+
