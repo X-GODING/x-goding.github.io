@@ -38,8 +38,8 @@ def zip_files(source, target):
 #target-file 签名，一般用不到，最后会统一签名
 def sign_zip_files(source, target):
     cmd = "java -Xmx2048m -Djava.library.path=out/host/linux-x86/lib64 -jar out/host/linux-x86/framework/signapk.jar \
-                -w tools/sunmitools/.config/sunmi/build/security/releasekey.x509.pem \
-                   tools/sunmitools/.config/sunmi/build/security/releasekey.pk8 %s %s"
+                -w tools/xxxxtools/.config/xxx/build/security/releasekey.x509.pem \
+                   tools/xxxtools/.config/xxx/build/security/releasekey.pk8 %s %s"
     os.system(cmd  % (source, source))
     os.system(cmd  % (target, target))
 
